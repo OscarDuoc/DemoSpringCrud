@@ -1,35 +1,33 @@
 package com.acl.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 	
 	@Entity
-	@Table (name = "persona")
-
+	@Table (name = "users")
+	@EntityListeners(AuditingEntityListener.class)
 	public class Persona {
 		
-		@Id
-		@GeneratedValue(strategy = GenerationType.AUTO)
-		private Long id;
+		 @Id
+		    @GeneratedValue(strategy = GenerationType.AUTO)
+		    private long id;
+
+		    @Column(name = "Nombre", nullable = false)
+		    private String Nombre;
+
+		    @Column(name = "Apellido", nullable = false)
+		    private String Apellido;
+
+		    @Column(name = "Correo", nullable = false)
+		    private String Correo;
 		
-		private String nombre;
-		private String apellido;
-		private String correo;
-		
-		public Persona () {
-			
-		}
-		
-		public Persona(Long id, String nombre, String apellido, String correo) {
-			super();
-			this.id = id;
-			this.nombre = nombre;
-			this.apellido = apellido;
-			this.correo = correo;
-		}
 		
 		
 		public Long getId() {
@@ -39,21 +37,33 @@ import javax.persistence.Table;
 			this.id = id;
 		}
 		public String getNombre() {
-			return nombre;
+			return Nombre;
 		}
-		public void setNombre(String nombre) {
-			this.nombre = nombre;
+		public void setNombre(String Nombre) {
+			this.Nombre = Nombre;
 		}
 		public String getApellido() {
-			return apellido;
+			return Apellido;
 		}
-		public void setApellido(String apellido) {
-			this.apellido = apellido;
+		public void setApellido(String Apellido) {
+			this.Apellido = Apellido;
 		}
 		public String getCorreo() {
-			return correo;
+			return Correo;
 		}
-		public void setCorreo(String correo) {
-			this.correo = correo;
+		public void setCorreo(String Correo) {
+			this.Correo = Correo;
 		}
+		
+		 @Override
+		    public String toString() {
+		        return "User{" +
+		                "id=" + id +
+		                ", Nombre='" + Nombre + '\'' +
+		                ", Apellido='" + Apellido + '\'' +
+		                ", Correo='" + Correo + '\'' +
+
+		                '}';
+		    }
+
 }
