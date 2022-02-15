@@ -27,9 +27,9 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 		    @Column(name = "Correo", nullable = false)
 		    private String Correo;
-		
-		
-		
+
+		public Persona() {
+		}
 		public Long getId() {
 			return id;
 		}
@@ -54,6 +54,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 		public void setCorreo(String Correo) {
 			this.Correo = Correo;
 		}
+
 		
 		 @Override
 		    public String toString() {
@@ -65,5 +66,4 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 		                '}';
 		    }
-
-}
+	}

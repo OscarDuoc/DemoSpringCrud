@@ -27,7 +27,8 @@ public class PersonaREST {
 
 	@Autowired
 	private ServicioPersona personaService;
-	
+
+
 	@PostMapping  
 	private ResponseEntity<Persona> guardar (@RequestBody Persona persona){
 		Persona prueba = personaService.create(persona);

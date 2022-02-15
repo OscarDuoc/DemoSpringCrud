@@ -23,7 +23,6 @@ public interface PersonaRepositorio extends JpaRepository<Persona, Long> {
 
 	void flush();
 
-
 	void deleteAllInBatch(Iterable<Persona> entities);
 
 	void deleteAllByIdInBatch(Iterable<Long> ids);
